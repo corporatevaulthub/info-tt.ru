@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import SaleForm from './SaleForm';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('sale', 'sale');
+---
+
+<div class="container mb-10 pb-[60px] pt-[80px] lg:pb-[130px]" id="sale">
+  <div class="sale-container relative flex flex-col items-start gap-2 rounded-[20px] bg-[#F6F6F6] px-5 sm:pt-28 lg:flex-row lg:pr-[48px] lg:pt-0">
+    <div class="z-10 w-full py-5 sm:px-4 lg:max-w-[580px] lg:py-14 lg:pl-14 xl:max-w-full">
+      <h2 class="section-title mb-5 flex items-baseline justify-start gap-2 text-primary sm:mb-[85px] lg:mb-5 xl:mb-10">
+        <Image src={import('../assets/gift.svg')} alt="gift" />
+        АКЦИЯ
+      </h2>
+      <p class="mb-5 max-w-[570px] text-xl font-bold uppercase text-dark sm:mb-2 lg:mb-14 lg:text-2xl">
+        <span class="text-[#E53737]">Бесплатно</span> таможенное оформление <span class="no-uppercase">или</span> Доставка сборного груза в Москву
+      </p>
+      <p class="mb-6 font-semibold text-dark">Оставьте ваши контакты и мы расскажем подробнее</p>
+      <SaleForm client:load />
+      <p class="mt-9 border-t border-[#D1D2D5] pt-2 text-[12px] font-bold lg:hidden">Акция действует при заказе комплекса услуг</p>
+    </div>
+    <div class="relative z-10 -order-1 sm:absolute sm:right-24 sm:top-0 lg:relative lg:right-0 lg:order-1">
+      <Image src={import('../assets/container.png')} quality={100} class="max-w-[270px] lg:mb-7 lg:max-w-full" alt="container" />
+      <p class="hidden pb-9 text-end text-sm font-bold xl:block">{data.saleFor}</p>
+      <span
+        class="absolute -right-8 top-10 grid size-[112px] rotate-[5deg] place-content-center place-items-start rounded-full bg-[#264A94] p-0.5 text-center text-[12px] font-bold uppercase text-white lg:right-0 lg:size-[140px] lg:text-base xl:size-[161px]">
+        {data.saleDate}
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sale-container:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    width: 562px;
+    height: 100%;
+    background-image: url('../assets/sale-mask.svg');
+    background-repeat: no-repeat;
+  }
+</style>

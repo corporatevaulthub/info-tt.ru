@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import CallForm from './CallForm';
+---
+
+<div class="callback py-[40px] sm:py-[80px]" id="callback">
+  <div class="container">
+    <div class="mb-10 flex flex-col items-end justify-between gap-5 md:flex-row">
+      <h2 class="section-title text-white">Индивидуальный расчёт для вас <span class="whitespace-nowrap">в течение</span> суток</h2>
+      <p class="font-semibold text-white">Cпециалист по вэд бесплатно рассчитает стоимость комплекса услуг и ответит на ваши вопросы</p>
+    </div>
+    <div class="relative bg-[#F7F7F7] px-5 py-10 md:px-16">
+      <CallForm client:load />
+      <Image src={import('../assets/form.png')} quality={100} class="z-1 absolute bottom-0 right-0 hidden xl:block" alt="png" />
+    </div>
+  </div>
+</div>
+<style>
+  .callback {
+    position: relative;
+  }
+  .callback::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #b2ddfd 0%, #4764b9 100%), linear-gradient(182deg, #43aaf5 1.35%, #223c86 105.4%), linear-gradient(180deg, #0e88e1 0%, #203984 100%), linear-gradient(180deg, #0e43e1 0%, #082782 100%);
+    transform: rotate(-180deg);
+  }
+</style>

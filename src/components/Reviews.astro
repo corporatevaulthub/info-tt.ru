@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('reviews', 'reviews');
+---
+
+<div class="container scroll-mt-28 pb-[60px] sm:pb-[130px]" id="reviews">
+  <div class="flex flex-col items-center gap-10 lg:flex-row lg:items-start">
+    <h2 class="max-w-[340px] text-center text-2xl font-semibold lg:text-start">
+      Постоянные клиенты отметили наш <span class="text-primary">высокий уровень профессионализма</span>
+    </h2>
+    <div class="embla relative">
+      <button class="embla__prev z-10 hidden size-11 shrink-0 place-content-center place-items-start rounded-full bg-primary sm:grid">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7L7.53516 1.46484M2 7L7.53516 12.5352M2 7H13.5" stroke="white" stroke-width="2"></path>
+        </svg>
+      </button>
+      <div class="embla__viewport">
+        <div class="embla__container">
+          {
+            data.reviews.map((review, index) => (
+              <div class="embla__slide">
+                <Image src={import(`../assets/reviews/reviews/${index}.png`)} width={272} height={373} alt="Отзыв" class="w-full" quality={100} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <button class="embla__next z-10 hidden size-11 shrink-0 place-content-center place-items-start rounded-full bg-primary sm:grid">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 7L6.46484 1.46484M12 7L6.46484 12.5352M12 7H0.5" stroke="white" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .embla {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    gap: 20px;
+  }
+  .embla__slide {
+    flex: 0 0 31.5%;
+    min-width: 0;
+  }
+
+  .embla button[disabled='disabled'] {
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 1140px) {
+    .embla__slide {
+      flex: 0 0 50%;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .embla__slide {
+      flex: 0 0 80%;
+    }
+  }
+</style>
+
+<script>
+  import '../components/embla/index';
+</script>
