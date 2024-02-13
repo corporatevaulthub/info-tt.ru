@@ -5,7 +5,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { IMaskInput } from "react-imask";
 
 const SaleForm = () => {
-  
   const [loading, setLoading] = useState(false);
   const form = useRef();
   const {
@@ -26,7 +25,7 @@ const SaleForm = () => {
         reset();
       },
       (error) => {
-        toast.error("Упс, что-то пошло не так Попробуйте ещё раз", {
+        toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
           duration: 3000,
           position: "bottom-center",
         });
