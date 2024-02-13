@@ -15,16 +15,47 @@ const SaleForm = () => {
   } = useForm();
 
   const sendEmail = (formData) => {
+    // Отправляем письмо с помощью emailjs
     emailjs.sendForm("service_fp0qp2n", "contact_form", form.current, "76c3fFMb82LKBSmtA").then(
       (result) => {
-        setLoading(false);
-        toast.success("Письмо успешно отправлено!", {
-          duration: 3000,
-          position: "bottom-center",
+        // Если письмо успешно отправлено
+        // Отправляем данные в Битрикс24
+        const leadData = {
+          FIELDS: {
+            TITLE: "Новый лид",
+            NAME: formData.name,
+            EMAIL: [{ VALUE: formData.email, VALUE_TYPE: "WORK" }],
+            PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
+            // Добавьте сюда другие поля формы, если необходимо
+          },
+        };
+
+        fetch("https://infott.bitrix24.ru/rest/31/33nrxzpn0pft3vv4/crm.lead.add.json", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(leadData),
+        }).then((response) => {
+          if (response.ok) {
+            // Если данные успешно отправлены в Битрикс24
+            setLoading(false);
+            toast.success("Письмо успешно отправлено и данные переданы в Битрикс24!", {
+              duration: 3000,
+              position: "bottom-center",
+            });
+            reset();
+          } else {
+            // Если возникла ошибка при отправке данных в Битрикс24
+            toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
+              duration: 3000,
+              position: "bottom-center",
+            });
+          }
         });
-        reset();
       },
       (error) => {
+        // Если произошла ошибка при отправке письма
         toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
           duration: 3000,
           position: "bottom-center",
