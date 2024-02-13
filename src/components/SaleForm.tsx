@@ -3,7 +3,9 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { IMaskInput } from "react-imask";
+
 const SaleForm = () => {
+  
   const [loading, setLoading] = useState(false);
   const form = useRef();
   const {
@@ -12,6 +14,7 @@ const SaleForm = () => {
     reset,
     formState: { errors },
   } = useForm();
+
   const sendEmail = (formData) => {
     emailjs.sendForm("service_fp0qp2n", "contact_form", form.current, "76c3fFMb82LKBSmtA").then(
       (result) => {
