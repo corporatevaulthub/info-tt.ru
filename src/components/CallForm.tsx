@@ -6,7 +6,10 @@ import { IMaskInput } from "react-imask";
 
 const CallForm = () => {
   const [loading, setLoading] = useState(false);
+
   const form = useRef();
+  const phoneInputRef = useRef(null);
+
   const {
     register,
     handleSubmit,
@@ -15,16 +18,17 @@ const CallForm = () => {
   } = useForm();
 
   const sendEmail = (formData) => {
-    // Отправляем данные на почту с помощью emailjs
+    const phone = phoneInputRef.current.value;
+
     emailjs.sendForm("service_fp0qp2n", "template_calculation", form.current, "76c3fFMb82LKBSmtA").then(
       (result) => {
         const leadData = {
           FIELDS: {
-            TITLE: "Новый лид",
+            TITLE: "Новый лид с формы (Расчет)",
             NAME: formData.name,
             LAST_NAME: formData.last_name,
+            PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
             EMAIL: [{ VALUE: formData.email, VALUE_TYPE: "WORK" }],
-            PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
           },
         };
 
@@ -38,14 +42,14 @@ const CallForm = () => {
           if (response.ok) {
             // Если данные успешно отправлены в Битрикс24
             setLoading(false);
-            toast.success("Письмо успешно отправлено и данные переданы в Битрикс24!", {
+            toast.success("Письмо успешно отправлено!", {
               duration: 3000,
               position: "bottom-center",
             });
             reset();
           } else {
             // Если возникла ошибка при отправке данных в Битрикс24
-            toast.error("Упс, что-то пошло не так Попробуйте ещё раз", {
+            toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
               duration: 3000,
               position: "bottom-center",
             });
@@ -54,7 +58,7 @@ const CallForm = () => {
       },
       (error) => {
         // Если произошла ошибка при отправке письма на почту
-        toast.error("Упс, что-то пошло не так Попробуйте ещё раз", {
+        toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
           duration: 3000,
           position: "bottom-center",
         });
@@ -111,7 +115,7 @@ const CallForm = () => {
               </div>
               <div className="mb-5 w-full">
                 <h3 className="mb-2 font-bold text-dark">Телефон</h3>
-                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="Телефон" />
+                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="Телефон" inputRef={phoneInputRef} />
               </div>
               <div className="w-full">
                 <h3 className="mb-2 font-bold text-dark">Email</h3>

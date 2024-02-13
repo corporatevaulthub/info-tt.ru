@@ -3,10 +3,12 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { IMaskInput } from "react-imask";
-
 const SaleForm = () => {
   const [loading, setLoading] = useState(false);
+
   const form = useRef();
+  const phoneInputRef = useRef(null);
+
   const {
     register,
     handleSubmit,
@@ -15,18 +17,17 @@ const SaleForm = () => {
   } = useForm();
 
   const sendEmail = (formData) => {
-    // Отправляем письмо с помощью emailjs
+    setLoading(true);
+
+    const phone = phoneInputRef.current.value;
+
     emailjs.sendForm("service_fp0qp2n", "contact_form", form.current, "76c3fFMb82LKBSmtA").then(
       (result) => {
-        // Если письмо успешно отправлено
-        // Отправляем данные в Битрикс24
-        const leadData = {
+        const data = {
           FIELDS: {
-            TITLE: "Новый лид",
+            TITLE: "Новый лид с формы (Акция)",
             NAME: formData.name,
-            EMAIL: [{ VALUE: formData.email, VALUE_TYPE: "WORK" }],
-            PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
-            // Добавьте сюда другие поля формы, если необходимо
+            PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
           },
         };
 
@@ -35,41 +36,46 @@ const SaleForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(leadData),
-        }).then((response) => {
-          if (response.ok) {
-            // Если данные успешно отправлены в Битрикс24
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.ok) {
+              setLoading(false);
+              toast.success("Письмо успешно отправлено!", {
+                duration: 3000,
+                position: "bottom-center",
+              });
+              reset(); // Очищаем поля формы
+            } else {
+              throw new Error("Ошибка при отправке данных на сервер Bitrix");
+            }
+          })
+          .catch((error) => {
             setLoading(false);
-            toast.success("Письмо успешно отправлено и данные переданы в Битрикс24!", {
+            toast.error("Упс, что-то пошло не так при отправке данных на сервер Bitrix. Попробуйте ещё раз.", {
               duration: 3000,
               position: "bottom-center",
             });
-            reset();
-          } else {
-            // Если возникла ошибка при отправке данных в Битрикс24
-            toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
-              duration: 3000,
-              position: "bottom-center",
-            });
-          }
-        });
+            console.error("Ошибка:", error);
+          });
       },
       (error) => {
-        // Если произошла ошибка при отправке письма
-        toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
+        // Если возникла ошибка при отправке письма на email
+        setLoading(false);
+        toast.error("Упс, что-то пошло не так при отправке письма на email. Попробуйте ещё раз.", {
           duration: 3000,
           position: "bottom-center",
         });
+        console.error("Ошибка:", error);
       },
     );
-    setLoading(true);
   };
 
   return (
     <form ref={form} onSubmit={handleSubmit(sendEmail)}>
       <fieldset className="mb-4 flex w-full max-w-[540px] flex-col items-start gap-2 lg:max-w-full lg:flex-row">
-        <input className={`input h-[43px] w-full lg:w-[260px] ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
-        <IMaskInput required className="input h-[43px] w-full lg:w-[260px]" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" />
+        <input required className={`input h-[43px] w-full lg:w-[260px] ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
+        <IMaskInput required className="input h-[43px] w-full lg:w-[260px]" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" inputRef={phoneInputRef} />
         <button className="button h-[43px] w-full justify-center  bg-[#E53737] px-[43px] disabled:pointer-events-none disabled:bg-dark sm:w-auto" disabled={loading}>
           {loading ? "Отправка.." : "Отправить"}
         </button>
