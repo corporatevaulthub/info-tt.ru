@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { IMaskInput } from "react-imask";
+
 const SaleForm = () => {
   const [loading, setLoading] = useState(false);
 
