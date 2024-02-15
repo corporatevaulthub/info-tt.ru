@@ -29,6 +29,14 @@ const CallForm = () => {
             LAST_NAME: formData.last_name,
             PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
             EMAIL: [{ VALUE: formData.email, VALUE_TYPE: "WORK" }],
+            COMMENTS: `
+              Требуется: ${formData.required_for},
+              Пункт отправки: ${formData.shipping_point},
+              Пункт доставки: ${formData.delivery_point},
+              Наименование товара: ${formData.product_name},
+              Вес: ${formData.weight},
+              Объем, м3: ${formData.scope}
+            `,
           },
         };
 
