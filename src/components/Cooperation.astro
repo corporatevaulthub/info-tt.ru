@@ -81,7 +81,10 @@ const items = [
           </ul>
           <a href="#sale" class="button inline-block">Оставить заявку</a>
         </div>
-        <Image src={import('../assets/cooperations/complexArray/0/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/0/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">01</span>
+        </div>
       </div>
       <div class="sticky top-40 col-span-2 flex items-stretch justify-between gap-5 rounded-[20px] bg-white py-[15px] pl-[57px] pr-[15px]">
         <div class="pt-10">
@@ -102,7 +105,10 @@ const items = [
           </ul>
           <a href="#sale" class="button inline-block">Оставить заявку</a>
         </div>
-        <Image src={import('../assets/cooperations/complexArray/1/image.png')} width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="консалтинг ВЭД" />
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/1/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">02</span>
+        </div>
       </div>
       <div class="sticky top-40 col-span-2 flex items-stretch justify-between gap-5 rounded-[20px] bg-white py-[15px] pl-[57px] pr-[15px]">
         <div class="pt-[40px]">
@@ -123,12 +129,19 @@ const items = [
           </ul>
           <a href="#sale" class="button inline-block">Оставить заявку</a>
         </div>
-        <Image src={import('../assets/cooperations/complexArray/2/image.png')} width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="консалтинг ВЭД" />
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/2/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">03</span>
+        </div>
       </div>
     </div>
     <div class="hidden grid-cols-2 gap-5 lg:grid">
       <div class="flex flex-col items-start gap-5 rounded-[20px] bg-white p-[15px] pb-[40px]">
-        <Image src={import('../assets/cooperations/complexArray/3/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/3/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">04</span>
+        </div>
+
         <h3 class="text-3xl font-bold uppercase text-dark">
           {data.complexArray[3].title}
         </h3>
@@ -144,8 +157,12 @@ const items = [
         <a href="#sale" class="button ml-6 inline-block">Оставить заявку</a>
       </div>
       <div class="flex flex-col items-start gap-5 rounded-[20px] bg-white p-[15px]">
-        <Image src={import('../assets/cooperations/complexArray/4/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
-         <h3 class="text-3xl font-bold uppercase text-dark">
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/4/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">05</span>
+        </div>
+
+        <h3 class="text-3xl font-bold uppercase text-dark">
           {data.complexArray[4].title}
         </h3>
         <ul class="mb-[54px] *:mb-2 *:flex *:items-start *:font-semibold *:text-[#252626]">
