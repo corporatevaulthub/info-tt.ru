@@ -49,7 +49,7 @@ const SaleForm = () => {
                 duration: 3000,
                 position: "bottom-center",
               });
-              reset(); // Очищаем поля формы
+              reset();
             } else {
               throw new Error("Ошибка при отправке данных на сервер Bitrix");
             }
@@ -64,7 +64,6 @@ const SaleForm = () => {
           });
       },
       (error) => {
-        // Если возникла ошибка при отправке письма на email
         setLoading(false);
         toast.error("Упс, что-то пошло не так при отправке письма на email. Попробуйте ещё раз.", {
           duration: 3000,
@@ -86,7 +85,7 @@ const SaleForm = () => {
           <input
             className={`input h-[43px] w-full lg:w-[530px] ${errors.comment && "border-2 border-red-500"}`}
             placeholder="Комментарий"
-            {...register("comment", { required: true })}
+            {...register("comment")}
             style={{ verticalAlign: "bottom" }}
           />
           <button className="button h-[43px] w-full justify-center bg-[#E53737] px-[43px] disabled:pointer-events-none disabled:bg-dark lg:w-[260px]" disabled={loading}>
