@@ -23,7 +23,7 @@ const Modal = () => {
           position: "bottom-center",
         });
         reset();
-				closeModal();
+        closeModal();
       },
       (error) => {
         toast.error("Упс, что-то пошло не так Попробуйте ещё раз", {
@@ -43,7 +43,7 @@ const Modal = () => {
   return (
     <>
       <button type="button" onClick={openModal} className="button px-3 xl:px-4">
-        Оставь заявку
+        Получить консультацию
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-[100]" onClose={closeModal}>
