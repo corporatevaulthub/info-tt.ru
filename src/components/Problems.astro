@@ -20,10 +20,12 @@ import QuestionsForms from '@components/forms/Questions';
       <QuestionsForms client:load />
     </div>
     <div class="relative">
-      <Image src={import('../assets/problem.png')} class="mb-5 w-ful hidden lg:block lg:max-w-[450px] rounded-xl object-cover xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
+      <Image src={import('../assets/problem.png')} class="w-full mb-5 hidden rounded-xl object-cover lg:block lg:max-w-[450px] xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
       <div class="left-0 right-0 mx-auto max-w-[544px] rounded-xl bg-[#F7F7F7] px-4 py-3.5 xl:absolute xl:bottom-10">
-        <p class="mb-3 sm:text-lg font-semibold">У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
-        <p class="sm:text-lg font-semibold">Но у нас есть все компетенции чтобы помогать вам несмотря на ограничения</p>
+        <p class="mb-3 font-semibold sm:text-lg">У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
+        <p class="font-semibold sm:text-lg">Но 
+          <span class='bg-[#3472EA] text-white p-1 rounded-md'>у нас есть все компетенции чтобы помогать вам</span>
+        <span class='bg-[#3472EA] text-white p-1 rounded-md'>несмотря на ограничения</span></p>
       </div>
     </div>
   </div>
