@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar';
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
-import Modal from './Modal'
+import Modal from './Modal';
 const { data } = await getEntry('contacts', 'contacts');
 
 const menu = [
@@ -33,8 +33,8 @@ const contacts = [
         <a class="text-sm font-medium underline-offset-2 hover:underline" href="mailto:sales@info-tt.ru">sales@info-tt.ru</a>
       </div>
       <div class="flex items-center gap-10">
-        <a href={data.tg} target='_blank' class="text-sm font-medium underline-offset-2 hover:underline">Телеграм</a>
-        <a href={data.tg} target='_blank' class="text-sm font-medium underline-offset-2 hover:underline">WhatsApp</a>
+        <a href={data.tg} target="_blank" class="text-sm font-medium underline-offset-2 hover:underline">Телеграм</a>
+        <a href={data.tg} target="_blank" class="text-sm font-medium underline-offset-2 hover:underline">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -78,7 +78,9 @@ const contacts = [
               ))
             }
           </div>
-          <Modal client:load />
+          <Modal client:load>
+            <span class="button px-3 xl:px-4">Получить консультацию</span>
+          </Modal>
           <div class="block lg:hidden">
             <MenuIcon class="size-7 text-[#2E3037]" />
           </div>

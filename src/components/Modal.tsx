@@ -5,7 +5,8 @@ import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import { X } from "lucide-react";
 import { IMaskInput } from "react-imask";
-const Modal = () => {
+
+const Modal = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const form = useRef();
   const {
@@ -40,11 +41,13 @@ const Modal = () => {
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
 
+  const HandleButton = ({ children }) => {
+    return <button onClick={openModal}>{children}</button>;
+  };
+
   return (
     <>
-      <button type="button" onClick={openModal} className="button px-3 xl:px-4">
-        Получить консультацию
-      </button>
+      <HandleButton>{children}</HandleButton>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-[100]" onClose={closeModal}>
           <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">

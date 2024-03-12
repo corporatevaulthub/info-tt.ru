@@ -4,6 +4,7 @@ import { Image, getImage } from 'astro:assets';
 import heroBackground from '../assets/hero.png';
 import { getEntry } from 'astro:content';
 const hero = await getEntry('hero', 'hero');
+import Modal from './Modal';
 ---
 
 <div class="hero bg-center">
@@ -15,12 +16,14 @@ const hero = await getEntry('hero', 'hero');
       <p class="mb-8 font-semibold text-white lg:mb-12">
         {hero.data.text}
       </p>
-      <a href="#callback" class="hover:text-whtie group inline-flex items-center gap-3 rounded bg-white px-4 py-3 font-bold text-dark transition-colors hover:bg-[#E53737] hover:text-white"
-        >Получить консультацию
-        <span class="grid size-[30px] place-content-center place-items-center rounded-full bg-[#E53737] transition-colors group-hover:bg-white">
-          <Icon name="chevron" class="size-6 text-white group-hover:text-dark" />
+      <Modal client:load>
+        <span class="hover:text-whtie group inline-flex items-center gap-3 rounded bg-white px-4 py-3 font-bold text-dark transition-colors hover:bg-[#E53737] hover:text-white"
+          >Получить консультацию
+          <span class="grid size-[30px] place-content-center place-items-center rounded-full bg-[#E53737] transition-colors group-hover:bg-white">
+            <Icon name="chevron" class="size-6 text-white group-hover:text-dark" />
+          </span>
         </span>
-      </a>
+      </Modal>
     </div>
     <div class="sm:-8 bg-white p-6 md:p-10 lg:max-w-[524px]">
       <h2 class="mb-4 text-xl font-semibold text-dark sm:mb-7 sm:text-3xl lg:text-2xl">
