@@ -3,7 +3,7 @@ import { config, fields, collection } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "cloud",
+    kind: "local",
   },
   cloud: {
     project: "tt-admin/info-tt",
@@ -17,6 +17,11 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: "Заголовок" } }),
         text: fields.text({ label: "Подзаголовок ", multiline: true }),
+
+        heroImages: fields.array(fields.image({ label: "Добавить изображение", directory: "/public/", publicPath: "" }), {
+          label: "Фоновые изображения",
+        }),
+
         tags: fields.array(fields.text({ label: "Список пунктов в белой плашке" }), {
           label: "Пункты в белой плашке",
           itemLabel: (props) => props.value,
@@ -150,8 +155,8 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: "Заголовок" } }),
         subtitle: fields.text({ label: "Подзаголовок" }),
-        tg: fields.url({ label: "Telegram URL",}),
-        whatsapp: fields.url({ label: "WhatsApp URL",}),
+        tg: fields.url({ label: "Telegram URL" }),
+        whatsapp: fields.url({ label: "WhatsApp URL" }),
       },
     }),
   },

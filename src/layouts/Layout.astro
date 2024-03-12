@@ -6,7 +6,7 @@ type Props = {
 import BaseHead from '@components/base/BaseHead.astro';
 import Footer from '@src/components/Footer.astro';
 import Header from '@src/components/Header.astro';
-
+import Modal from '@src/components/Modal';
 const { title, description } = Astro.props as Props;
 ---
 
@@ -21,5 +21,8 @@ const { title, description } = Astro.props as Props;
       </main>
       <Footer />
     </div>
+    <script>
+      import '../../node_modules/@preline/overlay/index';
+    </script>
   </body>
 </html>
