@@ -3,7 +3,7 @@ import { config, fields, collection } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "cloud",
+    kind: "local",
   },
   cloud: {
     project: "tt-info/tt-info",
@@ -150,6 +150,8 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: "Заголовок" } }),
         subtitle: fields.text({ label: "Подзаголовок" }),
+        tg: fields.url({ label: "Telegram URL",}),
+        whatsapp: fields.url({ label: "WhatsApp URL",}),
       },
     }),
   },

@@ -2,6 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar';
 import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('contacts', 'contacts');
 
 const menu = [
   { label: 'Услуги', href: '#cooperation' },
@@ -23,15 +25,15 @@ const contacts = [
 ---
 
 <StickyHeader class="sticky top-0 z-30 w-full bg-white text-dark transition-all" defaultClass="drop-shadow-none" activeClass="drop-shadow-md">
-  <div class="bg-[#061634] py-2 text-white hidden sm:block">
+  <div class="hidden bg-[#061634] py-2 text-white sm:block">
     <div class="container flex justify-between gap-2">
       <div class="flex items-center gap-10">
         <span class="text-sm font-medium">Часы работы: пн-пт, с 10 до 18</span>
-        <a class="text-sm font-medium hover:underline underline-offset-2" href="mailto:sales@info-tt.ru">sales@info-tt.ru</a>
+        <a class="text-sm font-medium underline-offset-2 hover:underline" href="mailto:sales@info-tt.ru">sales@info-tt.ru</a>
       </div>
       <div class="flex items-center gap-10">
-        <a href="#" class="text-sm font-medium hover:underline underline-offset-2">Телеграм</a>
-        <a href="#" class="text-sm font-medium hover:underline underline-offset-2">WhatsApp</a>
+        <a href={data.tg} target='_blank' class="text-sm font-medium underline-offset-2 hover:underline">Телеграм</a>
+        <a href={data.tg} target='_blank' class="text-sm font-medium underline-offset-2 hover:underline">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -46,7 +48,7 @@ const contacts = [
           <ul class="flex w-full flex-col justify-center gap-5 pt-32 text-center lg:w-auto lg:flex-row lg:justify-start lg:pt-0 xl:gap-14">
             {
               menu.map((item) => (
-                <li class="font-medium transition-colors hover:text-primary text-xl lg:text-base">
+                <li class="text-xl font-medium transition-colors hover:text-primary lg:text-base">
                   <a href={item.href}>{item.label}</a>
                 </li>
               ))

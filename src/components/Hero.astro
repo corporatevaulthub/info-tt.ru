@@ -11,17 +11,17 @@ const optimizedBackground = await getImage({
 });
 ---
 
-<div class="w-full bg-cover bg-left bg-no-repeat sm:bg-top lg:bg-[length:100%_1000px]" style={`background-image: url(${optimizedBackground.src});`}>
+<div class="w-full bg-cover bg-right-top bg-no-repeat" style={`background-image: url(${optimizedBackground.src});`}>
   <div class="container flex flex-col items-start justify-between gap-5 pb-[70px] pt-[90px] sm:pt-[133px] lg:flex-row lg:pb-[120px]">
     <div class="w-full max-w-[750px]">
-      <h1 class="mb-3 text-4xl font-bold uppercase text-[#203253] lg:text-5xl xl:text-6xl">
+      <h1 class="mb-4 text-4xl font-bold uppercase text-white lg:text-5xl">
         {hero.data.title}
       </h1>
-      <p class="mb-8 max-w-[326px] font-semibold text-[#445677] lg:mb-12">
+      <p class="mb-8 font-semibold text-white lg:mb-12">
         {hero.data.text}
       </p>
       <a href="#callback" class="hover:text-whtie group inline-flex items-center gap-3 rounded bg-white px-4 py-3 font-bold text-dark transition-colors hover:bg-[#E53737] hover:text-white"
-        >Рассчитать стоимость
+        >Получить консультацию
         <span class="grid size-[30px] place-content-center place-items-center rounded-full bg-[#E53737] transition-colors group-hover:bg-white">
           <Icon name="chevron" class="size-6 text-white group-hover:text-dark" />
         </span>

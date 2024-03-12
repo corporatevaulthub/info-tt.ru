@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import QuestionsForms from '@components/forms/Questions';
+---
+
+<div class="bg-white py-20 lg:py-[140px]">
+  <div class="container flex flex-col items-center gap-5 lg:flex-row xl:items-stretch">
+    <div class="max-w-[600px]">
+      <div class="mb-5 flex max-w-[365px] items-center gap-4 rounded-full border border-[#E5ECF5] px-3 py-2 xl:mb-16">
+        <span class="size-2.5 rounded-full bg-[#0ABE47]"></span>
+        <span class="text-sm font-bold uppercase">С какими проблемами мы поможем?</span>
+      </div>
+      <ul class="mb-10 *:mb-5 *:flex *:items-center *:gap-3 *:text-xl *:font-semibold *:text-[#252626] xl:mb-14 xl:*:text-2xl">
+        <li><Icon name="marker" class="shrink-0" /> Не знаете, как вывезти или ввезти товары?</li>
+        <li><Icon name="marker" class="shrink-0" /> Проблемы с оплатой поставок?</li>
+        <li><Icon name="marker" class="shrink-0" /> Не можете разобраться в таможенных документах?</li>
+        <li><Icon name="marker" class="shrink-0" /> Нужно подобрать логистику и помочь с документами</li>
+      </ul>
+      <QuestionsForms client:load />
+    </div>
+    <div class="relative">
+      <Image src={import('../assets/problem.png')} class="mb-5 w-ful hidden lg:block lg:max-w-[450px] rounded-xl object-cover xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
+      <div class="left-0 right-0 mx-auto max-w-[544px] rounded-xl bg-[#F7F7F7] px-4 py-3.5 xl:absolute xl:bottom-10">
+        <p class="mb-3 sm:text-lg font-semibold">У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
+        <p class="sm:text-lg font-semibold">Но у нас есть все компетенции чтобы помогать вам несмотря на ограничения</p>
+      </div>
+    </div>
+  </div>
+</div>
