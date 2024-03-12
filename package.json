@@ -28,6 +28,7 @@
 		"astro-icon": "^1.0.3",
 		"astro-navbar": "^2.3.0",
 		"astro-seo-meta": "^4.1.0",
+		"astro-yandex-metrika": "^1.0.0",
 		"embla-carousel": "8.0.0-rc21",
 		"embla-carousel-auto-height": "8.0.0-rc21",
 		"lightgallery": "^2.7.2",

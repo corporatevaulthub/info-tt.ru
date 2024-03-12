@@ -6,7 +6,7 @@ export default config({
     kind: "local",
   },
   cloud: {
-    project: "tt-info/tt-info",
+    project: "tt-admin/info-tt",
   },
   collections: {
     hero: collection({

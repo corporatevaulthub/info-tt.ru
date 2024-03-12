@@ -3,27 +3,70 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { IMaskInput } from "react-imask";
+
 const CallForm = () => {
   const [loading, setLoading] = useState(false);
+
   const form = useRef();
+  const phoneInputRef = useRef(null);
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm();
-  const sendEmail = () => {
+
+  const sendEmail = (formData) => {
+    const phone = phoneInputRef.current.value;
+
     emailjs.sendForm("service_fp0qp2n", "template_calculation", form.current, "76c3fFMb82LKBSmtA").then(
       (result) => {
-        setLoading(false);
-        toast.success("Письмо успешно отправлено!", {
-          duration: 3000,
-          position: "bottom-center",
+        const leadData = {
+          FIELDS: {
+            TITLE: "Новый лид с формы (Расчет)",
+            NAME: formData.name,
+            LAST_NAME: formData.last_name,
+            PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
+            EMAIL: [{ VALUE: formData.email, VALUE_TYPE: "WORK" }],
+            COMMENTS: `
+              Требуется: ${formData.required_for},
+              Пункт отправки: ${formData.shipping_point},
+              Пункт доставки: ${formData.delivery_point},
+              Наименование товара: ${formData.product_name},
+              Вес: ${formData.weight},
+              Объем, м3: ${formData.scope}
+            `,
+          },
+        };
+
+        fetch("https://infott.bitrix24.ru/rest/31/33nrxzpn0pft3vv4/crm.lead.add.json", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(leadData),
+        }).then((response) => {
+          if (response.ok) {
+            // Если данные успешно отправлены в Битрикс24
+            setLoading(false);
+            toast.success("Письмо успешно отправлено!", {
+              duration: 3000,
+              position: "bottom-center",
+            });
+            reset();
+          } else {
+            // Если возникла ошибка при отправке данных в Битрикс24
+            toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
+              duration: 3000,
+              position: "bottom-center",
+            });
+          }
         });
-        reset();
       },
       (error) => {
-        toast.error("Упс, что-то пошло не так Попробуйте ещё раз", {
+        // Если произошла ошибка при отправке письма на почту
+        toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
           duration: 3000,
           position: "bottom-center",
         });
@@ -31,6 +74,7 @@ const CallForm = () => {
     );
     setLoading(true);
   };
+
   return (
     <form ref={form} onSubmit={handleSubmit(sendEmail)} className="relative z-10">
       <div className="mb-5 flex flex-col items-end gap-5 md:mb-10 md:flex-row">
@@ -79,7 +123,7 @@ const CallForm = () => {
               </div>
               <div className="mb-5 w-full">
                 <h3 className="mb-2 font-bold text-dark">Телефон</h3>
-                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="Телефон" />
+                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="Телефон" inputRef={phoneInputRef} />
               </div>
               <div className="w-full">
                 <h3 className="mb-2 font-bold text-dark">Email</h3>
