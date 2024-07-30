@@ -4,7 +4,7 @@ import { Image, getImage } from 'astro:assets';
 import { getEntry } from 'astro:content';
 const hero = await getEntry('hero', 'hero');
 import Modal from './Modal';
-const optimizedBackground = await getImage({src: import('@assets/hero.png'), format: 'webp'});
+const optimizedBackground = await getImage({src: import('@assets/hero.png'), format: 'webp', quality: 90});
 ---
 
 <div class='hero bg-center' style={`background-image: url(${optimizedBackground.src});`}>

@@ -11,22 +11,6 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: "https://info-tt.ru",
   output: "hybrid",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    react(),
-    sitemap(),
-    icon(),
-    markdoc(),
-    keystatic(),
-  ],
-  adapter: vercel({
-    imageService: true,
-  }),
+  adapter: vercel({}),
+  integrations: [tailwind({ applyBaseStyles: false }), react(), sitemap(), icon(), markdoc(), keystatic()],
 });
