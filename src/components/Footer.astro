@@ -97,4 +97,14 @@ const { data } = await getEntry('contacts', 'contacts');
 	</div>
 </div>
 
-<script src='//code.jivo.ru/widget/rEBxteaePT' async defer></script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(() => {
+			const script = document.createElement('script');
+			script.src = '//code.jivo.ru/widget/rEBxteaePT';
+			script.async = true;
+			script.defer = true;
+			document.head.appendChild(script);
+		}, 3000);
+	});
+</script>
