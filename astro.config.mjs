@@ -5,11 +5,11 @@ import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
-import zeabur from '@zeabur/astro-adapter/serverless';
+import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   site: "https://info-tt.ru",
-  output: "server",
-  adapter: zeabur(),
+  output: "hybrid",
+  adapter: vercel(),
   integrations: [tailwind({ applyBaseStyles: false }), react(), sitemap(), icon(), markdoc(), keystatic()],
 });
