@@ -3,8 +3,9 @@ dist/
 
 # generated types
 .astro/
-# dependencies
-node_modules/
+# dependencies 
+# redeploy 
+node_modules/ 
 
 # logs
 npm-debug.log*
