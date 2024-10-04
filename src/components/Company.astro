@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('company', 'company');
+---
+
+<div class="mb-[60px] bg-[#F7F7F7] sm:mb-[130px]">
+  <div class="container flex flex-col items-stretch gap-10 pb-10 sm:py-[80px] lg:flex-row">
+    <div class="-mx-7 sm:-mx-0">
+      <Image src={import('../assets/company.png')} quality={100} class="w-full object-cover sm:rounded-[20px] lg:max-w-[550px] xl:max-w-full" alt="О компании" />
+    </div>
+
+    <div class="lg:max-w-[553px]">
+      <h2 class="section-title mb-6 text-dark lg:mb-10">О компании</h2>
+      <div class="mb-9 flex items-start gap-10 sm:gap-28">
+        <div>
+          <span class="mb-1 block text-2xl font-bold text-primary">> {data.experience} </span>
+          <span class="block font-semibold text-dark">опыт работы </span>
+        </div>
+        <div>
+          <span class="mb-1 block text-2xl font-bold text-primary">> {data.orders} </span>
+          <span class="font-semibold text-dark">успешных заказов</span>
+        </div>
+      </div>
+      <div class="font-semibold">
+        <Fragment set:html={data.content} />
+      </div>
+    </div>
+  </div>
+</div>

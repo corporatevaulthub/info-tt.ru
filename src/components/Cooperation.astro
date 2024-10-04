@@ -1,0 +1,255 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('cooperations', 'cooperations');
+
+const items = [
+  {
+    image: data.complexArray[0].image,
+    title: data.complexArray[0].title,
+    description: data.complexArray[0].description,
+    lists: ['Проведём переговоры', 'Составим внешнеэкономический договор', 'Произведём предоплату', 'Доставим и растаможим груз в соответствии с его спецификой'],
+  },
+  {
+    image: data.complexArray[1].image,
+    title: data.complexArray[1].title,
+    description: data.complexArray[1].description,
+    lists: [
+      'Организуем забор товара в соответствии с условиями Инкотермс, прописанными в вашем контракте',
+      'Проверим полноту и правильность документов',
+      'Поможем получить необходимые разрешения',
+      'Растаможим под печать брокера или вашу ЭЦП',
+      'Доставим товары вам или вашему конечному клиенту прямо в руки!',
+    ],
+  },
+  {
+    image: data.complexArray[2].image,
+    title: data.complexArray[2].title,
+    description: data.complexArray[2].description,
+    lists: ['Бесплатно проконсультируем по составлению внешне - экономического контракта', 'Проверим полноту и правильность документов', 'Оформим экспортную декларацию', 'Организуем доставку товара до таможенного терминала страны получателя'],
+  },
+
+  {
+    image: data.complexArray[3].image,
+    title: data.complexArray[3].title,
+    lists: ['Независимо от объема или типа груза, гарантируем Ж/Д доставку сборного груза из Китая за 21 день'],
+  },
+  {
+    image: data.complexArray[4].image,
+    lists: ['Можем стать вашими посредниками в торговых операциях'],
+  },
+];
+---
+
+<div class="wrapper -mt-2 pb-[50px] pt-[40px] lg:pt-[140px]" id="cooperation">
+  <div class="container">
+    <div class="relative mb-8 flex flex-col items-start justify-between gap-6 lg:mb-[82px] lg:flex-row">
+      <h2 class="section-title max-w-[875px] text-white">
+        {data.title}
+      </h2>
+      <div class="-order-1 flex items-center gap-4 self-end rounded-full border-2 border-[#E5ECF5] px-[18px] py-2 lg:order-1 lg:self-start">
+        <span class="size-2 rounded-full bg-[#E20B24]"></span>
+        <span class="block font-semibold uppercase text-white">услуги</span>
+      </div>
+      <div class="flex items-center gap-4 self-end lg:hidden">
+        <span class="font-semibold leading-5 text-white"> Листайте <br /> вправо</span>
+        <span class="grid size-10 place-items-center rounded-full bg-dark">
+          <Icon name="arrow" />
+        </span>
+      </div>
+      <Image class="absolute -top-10 left-[400px] hidden lg:block xl:-top-[10px]" src={import('../assets/cooperations/mak.svg')} alt="decor" />
+    </div>
+
+    <div class="mb-10 hidden grid-cols-2 gap-5 lg:grid">
+      <div class="sticky top-40 col-span-2 flex items-stretch justify-between gap-5 rounded-[20px] bg-white py-[15px] pl-[57px] pr-[15px]">
+        <div class="pt-10">
+          <h3 class="section-title mb-3 text-dark">
+            {data.complexArray[0].title}
+          </h3>
+          <p class="mb-10 max-w-[552px] font-medium">
+            {data.complexArray[0].description}
+          </p>
+          <ul class="mb-5 *:mb-2 *:flex *:items-center *:gap-1 *:font-semibold *:text-[#252626] xl:mb-20">
+            {
+              data.complexArray[0].lists.map((item) => (
+                <li>
+                  <Icon name="chevron" class="shrink-0 text-[#E20B24]" /> {item}
+                </li>
+              ))
+            }
+          </ul>
+          <a href="#callback" class="button inline-block">Оставить заявку</a>
+        </div>
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/0/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">01</span>
+        </div>
+      </div>
+      <div class="sticky top-40 col-span-2 flex items-stretch justify-between gap-5 rounded-[20px] bg-white py-[15px] pl-[57px] pr-[15px]">
+        <div class="pt-10">
+          <h3 class="section-title mb-3 text-dark">
+            {data.complexArray[1].title}
+          </h3>
+          <p class="mb-10 max-w-[552px] font-medium">
+            {data.complexArray[1].description}
+          </p>
+          <ul class="mb-10 *:mb-2 *:flex *:items-start *:font-semibold *:text-[#252626]">
+            {
+              data.complexArray[0].lists.map((item) => (
+                <li>
+                  <Icon name="chevron" class="mt-1 shrink-0 text-[#E20B24]" /> {item}
+                </li>
+              ))
+            }
+          </ul>
+          <a href="#callback" class="button inline-block">Оставить заявку</a>
+        </div>
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/1/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">02</span>
+        </div>
+      </div>
+      <div class="sticky top-40 col-span-2 flex items-stretch justify-between gap-5 rounded-[20px] bg-white py-[15px] pl-[57px] pr-[15px]">
+        <div class="pt-[40px]">
+          <h3 class="section-title mb-3 text-dark">
+            {data.complexArray[2].title}
+          </h3>
+          <p class="mb-10 max-w-[552px] font-medium">
+            {data.complexArray[2].description}
+          </p>
+          <ul class="mb-10 *:mb-2 *:flex *:items-start *:font-semibold *:text-[#252626]">
+            {
+              data.complexArray[2].lists.map((item) => (
+                <li>
+                  <Icon name="chevron" class="mt-1 shrink-0 text-[#E20B24]" /> {item}
+                </li>
+              ))
+            }
+          </ul>
+          <a href="#callback" class="button inline-block">Оставить заявку</a>
+        </div>
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/2/image.png')} format="webp" width={615} height={479} quality={100} class="h-[480px] w-[400px] rounded-[20px] object-cover xl:w-auto" alt="Аутсорсинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">03</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden grid-cols-2 gap-5 lg:grid">
+      <div class="flex flex-col items-start gap-5 rounded-[20px] bg-white p-[15px] pb-[40px]">
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/3/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">04</span>
+        </div>
+
+        <h3 class="text-3xl font-bold uppercase text-dark">
+          {data.complexArray[3].title}
+        </h3>
+        <ul class="mb-[30px] *:flex *:items-start *:font-semibold *:text-[#252626]">
+          {
+            data.complexArray[3].lists.map((item) => (
+              <li>
+                <Icon name="chevron" class="mt-1 shrink-0 text-[#E20B24]" /> {item}
+              </li>
+            ))
+          }
+        </ul>
+        <a href="#callback" class="button ml-6 inline-block">Оставить заявку</a>
+      </div>
+      <div class="flex flex-col items-start gap-5 rounded-[20px] bg-white p-[15px]">
+        <div class="relative">
+          <Image src={import('../assets/cooperations/complexArray/4/image.png')} width={600} height={165} quality={100} alt="консалтинг ВЭД" />
+          <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">05</span>
+        </div>
+
+        <h3 class="text-3xl font-bold uppercase text-dark">
+          {data.complexArray[4].title}
+        </h3>
+        <ul class="mb-[54px] *:mb-2 *:flex *:items-start *:font-semibold *:text-[#252626]">
+          {
+            data.complexArray[4].lists.map((item) => (
+              <li>
+                <Icon name="chevron" class="mt-1 shrink-0 text-[#E20B24]" /> {item}
+              </li>
+            ))
+          }
+        </ul>
+        <a href="#callback" class="button ml-6 inline-block">Оставить заявку</a>
+      </div>
+    </div>
+
+    <div class="embla relative lg:hidden">
+      <div class="embla__viewport">
+        <div class="embla__container">
+          {
+            items.map((item, index) => (
+              <div class="embla__slide rounded-[20px] bg-[#F8F8F8] p-5">
+                <div class="relative mb-7">
+                  <Image src={import(`../assets/cooperations/complexArray/${index}/image.png`)} width={330} height={190} alt="Отзыв" class="w-full" quality={100} />
+                  <span class="absolute right-3 top-3 grid h-[30px] w-[50px] place-content-center rounded-full bg-[#E53737] text-white">0{index + 1}</span>
+                </div>
+                <h2 class="mb-2 text-2xl font-bold uppercase text-dark">{item.title}</h2>
+                <p class="mb-5 font-medium">{item.description}</p>
+                <ul class="mb-8 *:mb-2 *:flex *:items-start *:font-semibold *:text-[#252626]">
+                  {item.lists.map((list) => (
+                    <li>
+                      <Icon name="chevron" class="shrink-0 text-[#E20B24]" /> {list}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#callback" class="button inline-block">
+                  Оставить заявку
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    position: relative;
+  }
+  .wrapper::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #b2ddfd 0%, #4764b9 100%);
+    transform: rotate(-180deg);
+  }
+
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: height 0.2s;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+  @media screen and (min-width: 576px) {
+    .embla__slide {
+      flex: 0 0 90%;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .embla__slide {
+      flex: 0 0 48%;
+    }
+  }
+</style>
+
+<script>
+  import '../components/embla/index';
+</script>
