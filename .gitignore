@@ -4,7 +4,7 @@ dist/
 # generated types
 .astro/
 # dependencies 
-# redeploy 3:)
+# redeploy 4:)
 node_modules/ 
 
 # logs
