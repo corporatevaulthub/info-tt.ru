@@ -14,7 +14,9 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: "https://info-tt.ru",
   output: "hybrid",
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   // adapter: vercel(),
   integrations: [tailwind({ applyBaseStyles: false }), react(), sitemap(), icon(), markdoc(), keystatic()],
 });
