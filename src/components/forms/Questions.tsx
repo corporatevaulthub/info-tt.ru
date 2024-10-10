@@ -33,7 +33,7 @@ const QuestionsForms = () => {
   };
 
   return (
-    <form ref={form} onSubmit={handleSubmit(sendEmail)} className="rounded-[20px] bg-[#F7F7F7] p-10">
+    <form ref={form} onSubmit={handleSubmit(sendEmail)} className="rounded-[20px] bg-gray-50 p-10">
       <p className="mb-5 font-semibold text-[#252626]">Оставьте ваши контакты и мы ответим на все вопросы</p>
       <fieldset className="mb-4 flex w-full  flex-col items-start gap-2 lg:max-w-full lg:flex-row">
         <input className={`input h-[43px] w-full  ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />

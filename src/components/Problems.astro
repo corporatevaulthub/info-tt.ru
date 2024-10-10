@@ -2,31 +2,43 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import QuestionsForms from '@components/forms/Questions';
+
+const questions = [
+  'Возникли сложности с ввозом и покупкой импортного товара или оборудования?',
+  'Нужно импортировать товар известного бренда, который покинул Россию в настоящее время?',
+  'Не можете отгрузить или продать товар покупателю за пределами РФ в связи с усложнением логистических цепочек?',
+  'Собственный отдел ВЭД в компании ежемесячно обходиться слишком дорого, а объемы поставок вынужденно сократились?',
+  'Ситуация в сфере ВЭД не стабильна и постоянно меняется, Вы не успеваете отслеживать и подстраивать под неё свои бизнес-процессы?',
+];
 ---
 
-<div class="bg-white py-20 lg:py-[140px]">
+<section class="py-10 md:py-20">
   <div class="container flex flex-col items-center gap-5 lg:flex-row xl:items-stretch">
     <div class="max-w-[600px]">
-      <div class="mb-5 flex max-w-[365px] items-center gap-4 rounded-full border border-[#E5ECF5] px-3 py-2 xl:mb-16">
+      <div class="mb-5 inline-flex items-center gap-3 rounded-full border border-[#E5ECF5] px-5 py-2 xl:mb-10">
         <span class="size-2.5 rounded-full bg-[#0ABE47]"></span>
         <span class="text-sm font-bold uppercase">С какими проблемами мы поможем?</span>
       </div>
-      <ul class="mb-10 *:mb-5 *:flex *:items-center *:gap-3 *:text-xl *:font-semibold *:text-[#252626] xl:mb-14 xl:*:text-2xl">
-        <li><Icon name="marker" class="shrink-0" /> Не знаете, как вывезти или ввезти товары?</li>
-        <li><Icon name="marker" class="shrink-0" /> Проблемы с оплатой поставок?</li>
-        <li><Icon name="marker" class="shrink-0" /> Не можете разобраться в таможенных документах?</li>
-        <li><Icon name="marker" class="shrink-0" /> Нужно подобрать логистику и помочь с документами</li>
+      <ul class="mb-10">
+        {
+          questions.map((item) => (
+            <li class="mb-3 flex items-start gap-5 text-lg font-semibold text-[#252626]">
+              <Icon name="marker" class="mt-1 shrink-0" />
+              {item}
+            </li>
+          ))
+        }
       </ul>
       <QuestionsForms client:load />
     </div>
     <div class="relative">
-      <Image src={import('../assets/problem.png')} class="w-full mb-5 hidden rounded-xl object-cover lg:block lg:max-w-[450px] xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
-      <div class="left-0 right-0 mx-auto max-w-[544px] rounded-xl bg-[#F7F7F7] px-4 py-3.5 xl:absolute xl:bottom-10">
-        <p class="mb-3 font-semibold sm:text-lg">У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
-        <p class="font-semibold sm:text-lg">Но 
-          <span class='bg-[#3472EA] text-white p-1 rounded-md'>у нас есть все компетенции чтобы помогать вам</span>
-        <span class='bg-[#3472EA] text-white p-1 rounded-md'>несмотря на ограничения</span></p>
+      <Image src={import('@assets/business.png')} class="mb-5 hidden w-full rounded-xl object-cover lg:block lg:max-w-[450px] xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
+      <div class="bg-gray-50 left-0 right-0 mx-auto max-w-[544px] rounded-xl px-4 py-3.5 xl:absolute xl:bottom-10">
+        <p class="font-semibold">
+          Вы всегда можете воспользоваться всем спектром наших возможностей для решения этих задач так и отдельными опциями будь то, оплата за товар поставщику, логистика, таможенное оформление, юридическая консультация в сфере ВЭД, складские услуги
+          и т.п.
+        </p>
       </div>
     </div>
   </div>
-</div>
+</section>

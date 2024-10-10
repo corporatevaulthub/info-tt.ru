@@ -7,10 +7,10 @@
     @apply flex items-center rounded bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary/90;
   }
   .section-title {
-    @apply text-[34px] font-bold uppercase leading-10 xl:text-5xl;
+    @apply font-bold uppercase text-3xl xl:text-5xl leading-none;
   }
   .input {
-    @apply rounded border-none  font-medium focus:ring-primary;
+    @apply rounded border-none font-medium focus:ring-primary;
   }
 }
 

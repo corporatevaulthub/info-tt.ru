@@ -75,8 +75,8 @@ const Modal = ({ children }) => {
                   <p className="mb-5 text-center">И мы скоро свяжемся с вами!</p>
                   <form ref={form} onSubmit={handleSubmit(sendEmail)}>
                     <fieldset className="mb-4 flex w-full flex-col items-start gap-3">
-                      <input className={`input h-[43px] w-full bg-[#F7F7F7] ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
-                      <IMaskInput required className="input h-[43px] w-full bg-[#F7F7F7]" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" />
+                      <input className={`input h-[43px] w-full bg-gray-50 ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
+                      <IMaskInput required className="input h-[43px] w-full bg-gray-50" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" />
                     </fieldset>
                     <label className="mb-5 flex cursor-pointer items-center gap-2 text-[#2E3037]">
                       <input required type="checkbox" {...register("accept", { required: true })} className="form-checkbox rounded border-[#D5DAE3] text-primary  focus:ring-0" />

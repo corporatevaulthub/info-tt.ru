@@ -48,7 +48,6 @@ const CallForm = () => {
           body: JSON.stringify(leadData),
         }).then((response) => {
           if (response.ok) {
-            // Если данные успешно отправлены в Битрикс24
             setLoading(false);
             toast.success("Письмо успешно отправлено!", {
               duration: 3000,
@@ -56,7 +55,6 @@ const CallForm = () => {
             });
             reset();
           } else {
-            // Если возникла ошибка при отправке данных в Битрикс24
             toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
               duration: 3000,
               position: "bottom-center",
@@ -65,8 +63,7 @@ const CallForm = () => {
         });
       },
       (error) => {
-        // Если произошла ошибка при отправке письма на почту
-        toast.error("Упс, что-то пошло не так( Попробуйте ещё раз", {
+        toast.error("Упс, что-то пошло не так. Попробуйте ещё раз", {
           duration: 3000,
           position: "bottom-center",
         });
@@ -84,7 +81,7 @@ const CallForm = () => {
               <h3 className="mb-5 font-bold text-dark">Требуется</h3>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
-                  <input type="radio" id="delivery" required value="Доставка товара" {...register("required_for", { required: true })} className="focus:ring-0" />
+                  <input type="radio" id="delivery" checked required value="Доставка товара" {...register("required_for", { required: true })} className="focus:ring-0" />
                   <label htmlFor="delivery" className="font-medium">
                     Доставка товара
                   </label>
@@ -153,7 +150,7 @@ const CallForm = () => {
       </div>
 
       <label className="flex cursor-pointer items-center gap-2 text-[#2E3037]">
-        <input type="checkbox" required name="yes_i_understand" className="form-checkbox rounded border-[#D5DAE3] text-primary  focus:ring-0" />
+        <input type="checkbox" required name="yes_i_understand" className="form-checkbox rounded border-[#D5DAE3] text-primary focus:ring-0" />
         <span className="text-[12px] font-semibold sm:text-sm">Я согласен с политикой конфиденциальности сайта</span>
       </label>
     </form>
