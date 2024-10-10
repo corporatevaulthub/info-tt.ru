@@ -1,9 +1,9 @@
 // keystatic.config.ts
 import { config, fields, collection } from "@keystatic/core";
-
+const isDev = import.meta.env.DEV
 export default config({
   storage: {
-    kind: "cloud",
+    kind: isDev ? 'local' : 'cloud',
   },
   cloud: {
     project: "tt-admin/info-tt",

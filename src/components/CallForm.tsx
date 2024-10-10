@@ -144,7 +144,7 @@ const CallForm = () => {
             </fieldset>
           </div>
         </div>
-        <button className="button w-full justify-center bg-[#E53737] py-2 disabled:pointer-events-none disabled:bg-dark md:w-auto" disabled={loading}>
+        <button className="button w-full justify-center bg-accent py-2 disabled:pointer-events-none disabled:bg-dark md:w-auto" disabled={loading}>
           {loading ? "Отправка.." : "Отправить"}
         </button>
       </div>

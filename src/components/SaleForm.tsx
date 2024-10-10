@@ -88,7 +88,7 @@ const SaleForm = () => {
             {...register("comment")}
             style={{ verticalAlign: "bottom" }}
           />
-          <button className="button h-[43px] w-full justify-center bg-[#E53737] px-[43px] disabled:pointer-events-none disabled:bg-dark lg:w-[260px]" disabled={loading}>
+          <button className="button h-[43px] w-full justify-center bg-accent px-[43px] disabled:pointer-events-none disabled:bg-dark lg:w-[260px]" disabled={loading}>
             {loading ? "Отправка.." : "Отправить"}
           </button>
         </div>

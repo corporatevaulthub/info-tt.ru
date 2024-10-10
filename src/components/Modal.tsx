@@ -82,7 +82,7 @@ const Modal = ({ children }) => {
                       <input required type="checkbox" {...register("accept", { required: true })} className="form-checkbox rounded border-[#D5DAE3] text-primary  focus:ring-0" />
                       <span className="text-[12px] font-semibold sm:text-sm">Я согласен с политикой конфиденциальности</span>
                     </label>
-                    <button className="button h-[43px] w-full justify-center bg-[#E53737]  px-[43px] hover:bg-[#E53737]/90 disabled:pointer-events-none disabled:bg-dark" disabled={loading}>
+                    <button className="button h-[43px] w-full justify-center bg-accent  px-[43px] hover:bg-accent/90 disabled:pointer-events-none disabled:bg-dark" disabled={loading}>
                       {loading ? "Отправка.." : "Отправить"}
                     </button>
                     <Toaster />

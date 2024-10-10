@@ -10,22 +10,20 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
 <section class="delivery bg-cover bg-center bg-no-repeat" style={`background-image: url(${optimizedBackground.src});`}>
   <div class="container relative z-10 flex min-h-[700px] flex-col items-start pb-5 lg:flex-row">
     <div class="mt-auto pb-5">
-      <h2 class="section-title mb-5 text-white lg:mb-9 lg:text-dark">{data.title}</h2>
+      <h2 class="section-title mb-5 text-white lg:mb-9 lg:text-white">ТАМОЖЕННОЕ ОФОРМЛЕНИЕ, БРОКЕРСКИЕ УСЛУГИ</h2>
       <div class="flex items-center gap-7">
         <div class="shrink-0 rounded-lg bg-white p-3">
-          <Image src={import('../assets/earth.svg')} alt="earth" class="size-10" />
+          <Image src={import('@assets/earth.svg')} alt="earth" class="size-10" />
         </div>
-        <p class="max-w-[445px] text-lg font-medium text-white lg:text-2xl lg:text-[#4C5670]">
-          {data.subtitle}
-        </p>
+        <p class="max-w-[445px] text-lg font-medium text-white lg:text-2xl">{data.subtitle}</p>
       </div>
     </div>
-    <div class="mt-2 flex max-w-[440px] gap-4 rounded-lg bg-white p-5 lg:right-0">
+    <div class="mt-2 flex  gap-4 rounded-lg bg-white p-5 lg:right-0">
       <div class="relative">
         <div id="lightgallery">
           <a href="/delivery-doc.png">
-            <Image src={import('../assets/delivery/delivery/image.png')} width={136} height={183} class="w-[186px]" alt="doc" />
-            <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-[#E53737]">
+            <Image src={import('../assets/delivery/delivery/image.png')} width={136} height={183} class="w-[200px]" alt="doc" />
+            <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-accent">
               <Icon name="search" />
             </span>
           </a>
@@ -36,7 +34,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
           <span class="mb-2 text-2xl font-bold uppercase text-primary">№ {data.number}</span>
           <p class="font-semibold">Номер в реестре</p>
         </div>
-        <p class="mt-auto text-sm font-semibold text-dark lg:text-base">Мы являемая официальным таможенным представителем</p>
+        <p class="mt-auto text-sm font-semibold text-dark lg:text-base">Мы являемся официальным таможенным представителем</p>
       </div>
     </div>
   </div>
@@ -54,12 +52,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-  @media screen and (min-width: 992px) {
-    .delivery::after {
-      opacity: 0;
-    }
+    z-index: 2;
   }
 </style>
 
