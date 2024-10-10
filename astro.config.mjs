@@ -6,10 +6,15 @@ import { defineConfig } from "astro/config";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 import netlify from "@astrojs/netlify";
+
+// import vercel from '@astrojs/vercel/serverless';
+
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://info-tt.ru",
   output: "hybrid",
   adapter: netlify(),
+  // adapter: vercel(),
   integrations: [tailwind({ applyBaseStyles: false }), react(), sitemap(), icon(), markdoc(), keystatic()],
 });
