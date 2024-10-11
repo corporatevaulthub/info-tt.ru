@@ -10,6 +10,9 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: "https://info-tt.ru",
   output: "hybrid",
+  experimental: {
+    contentLayer: true
+  },
   adapter: netlify({
     imageCDN: false,
   }),

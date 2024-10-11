@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
-const { data } = await getEntry('company', 'company');
 ---
 
 <section class="bg-gray-50 py-10 md:py-20">
@@ -14,16 +13,19 @@ const { data } = await getEntry('company', 'company');
       <h2 class="section-title mb-6 text-dark lg:mb-10">О компании</h2>
       <div class="mb-9 flex items-start gap-10 sm:gap-28">
         <div>
-          <span class="mb-1 block text-2xl font-bold text-primary">> {data.experience} </span>
+          <span class="mb-1 block text-2xl font-bold text-primary"> > 13 лет </span>
           <span class="block font-semibold text-dark">опыт работы </span>
         </div>
         <div>
-          <span class="mb-1 block text-2xl font-bold text-primary">> {data.orders} </span>
+          <span class="mb-1 block text-2xl font-bold text-primary"> > 50 000 </span>
           <span class="font-semibold text-dark">успешных заказов</span>
         </div>
       </div>
-      <div class="font-semibold leading-tight">
-        <Fragment set:html={data.content} />
+      <div class="font-semibold leading-tight space-y-5">
+        <p>Мы накопили богатый опыт в области таможенного оформления, организации транспортировки и хранения грузов.</p>
+        <p>Партнёрство с крупнейшими транспортными агентствами и морскими портами всего мира позволяет осуществлять доставку по выгодным ценам.</p>
+        <p>Высокий уровень сервиса и качества услуг позволяет нам становиться надежными партнерами.</p>
+        <p>Мы предлагаем комплексную доставку товара наиболее быстрым и экономически выгодным путем.</p>
       </div>
     </div>
   </div>

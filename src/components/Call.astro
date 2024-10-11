@@ -1,13 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import CallForm from './CallForm';
+import CallForm from '@components/forms/CallForm';
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('home', 'call');
 ---
 
 <div class="callback py-10 md:py-20" id="callback">
   <div class="container">
     <div class="mb-10 flex flex-col items-end justify-between gap-5 md:flex-row">
-      <h2 class="section-title text-white">Индивидуальный расчёт для вас в течение суток</h2>
-      <p class="font-semibold text-white">Cпециалист по вэд бесплатно рассчитает стоимость комплекса услуг и ответит на ваши вопросы</p>
+      <h2 class="section-title text-white">{data.title}</h2>
+      <p class="font-semibold text-white">{data.description}</p>
     </div>
     <div class="bg-gray-50 relative px-5 py-10 md:px-16">
       <CallForm client:load />

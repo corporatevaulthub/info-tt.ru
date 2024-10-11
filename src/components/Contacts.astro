@@ -1,11 +1,6 @@
----
-import { getEntry } from 'astro:content';
-const { data } = await getEntry('contacts', 'contacts');
----
-
 <div class="container scroll-mt-24" id="contacts">
-  <h2 class="section-title mb-8 text-dark">{data.title}</h2>
-  <p class="mb-10 max-w-3xl text-xl sm:text-2xl font-bold">{data.subtitle}</p>
+  <h2 class="section-title mb-8 text-dark">Контакты</h2>
+  <p class="mb-10 max-w-3xl text-xl font-bold sm:text-2xl">Желаете приехать к нам и обсудить сотрудничество лично? Будем рады пообщаться и найти наилучшее решение!</p>
 </div>
 <div class="h-[530px] w-full" id="map"></div>
 

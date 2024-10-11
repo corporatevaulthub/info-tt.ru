@@ -2,14 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import QuestionsForms from '@components/forms/Questions';
-
-const questions = [
-  'Возникли сложности с ввозом и покупкой импортного товара или оборудования?',
-  'Нужно импортировать товар известного бренда, который покинул Россию в настоящее время?',
-  'Не можете отгрузить или продать товар покупателю за пределами РФ в связи с усложнением логистических цепочек?',
-  'Собственный отдел ВЭД в компании ежемесячно обходиться слишком дорого, а объемы поставок вынужденно сократились?',
-  'Ситуация в сфере ВЭД не стабильна и постоянно меняется, Вы не успеваете отслеживать и подстраивать под неё свои бизнес-процессы?',
-];
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('home', 'problems');
 ---
 
 <section class="py-10 md:py-20">
@@ -17,11 +11,11 @@ const questions = [
     <div class="max-w-[600px]">
       <div class="mb-5 inline-flex items-center gap-3 rounded-full border border-[#E5ECF5] px-5 py-2 xl:mb-10">
         <span class="size-2.5 rounded-full bg-[#0ABE47]"></span>
-        <span class="text-sm font-bold uppercase">С какими проблемами мы поможем?</span>
+        <span class="text-sm font-bold uppercase">{data.title}</span>
       </div>
       <ul class="mb-10">
         {
-          questions.map((item) => (
+          data.tags.map((item) => (
             <li class="mb-3 flex items-start gap-5 text-lg font-semibold text-[#252626]">
               <Icon name="marker" class="mt-1 shrink-0" />
               {item}
@@ -33,10 +27,7 @@ const questions = [
     </div>
     <div class="relative">
       <Image src={import('@assets/business.png')} class="mb-5 hidden w-full rounded-xl object-cover lg:block lg:max-w-[450px] xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
-      <div class="left-0 right-0 mx-auto max-w-[544px] rounded-xl bg-gray-50 px-4 py-3.5 xl:absolute xl:bottom-10">
-        <p class="text-balance font-semibold mb-1">У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
-        <p class="font-semibold">Но у нас есть все компетенции чтобы помогать вам несмотря на ограничения.</p>
-      </div>
+      <p class="left-0 right-0 mx-auto mb-1 max-w-[544px] text-balance rounded-xl bg-gray-50 px-4 py-3.5 font-semibold xl:absolute xl:bottom-10">{data.imageText}</p>
     </div>
   </div>
 </section>
