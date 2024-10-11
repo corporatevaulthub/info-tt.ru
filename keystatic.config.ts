@@ -1,9 +1,9 @@
 // keystatic.config.ts
 import { config, fields, collection } from "@keystatic/core";
-const isDev = import.meta.env.DEV
+const isDev = import.meta.env.DEV;
 export default config({
   storage: {
-    kind: isDev ? 'local' : 'cloud',
+    kind: isDev ? "local" : "cloud",
   },
   cloud: {
     project: "tt-admin/info-tt",
@@ -32,12 +32,8 @@ export default config({
           itemLabel: (props) => props.value,
         }),
 
-        content: fields.document({
+        content: fields.markdoc({
           label: "Content",
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: true,
         }),
       },
     }),

@@ -18,23 +18,26 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
         <p class="max-w-[445px] text-lg font-medium text-white lg:text-2xl">{data.subtitle}</p>
       </div>
     </div>
-    <div class="mt-2 flex  gap-4 rounded-lg bg-white p-5 lg:right-0">
-      <div class="relative">
-        <div id="lightgallery">
-          <a href="/delivery-doc.png">
-            <Image src={import('../assets/delivery/delivery/image.png')} width={136} height={183} class="w-[200px]" alt="doc" />
-            <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-accent">
-              <Icon name="search" />
-            </span>
-          </a>
-        </div>
+
+    <div class="mt-2 flex gap-4 rounded-lg bg-white p-3 md:p-5">
+      <div id="lightgallery" class="relative">
+        <a href="/delivery-doc.png">
+          <Image src={import('@assets/delivery/delivery/image.png')} quality={100} class="w-[200px] h-full object-cover md:w-[250px]" alt="doc" />
+          <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-accent">
+            <Icon name="search" />
+          </span>
+        </a>
       </div>
+
       <div class="flex flex-col justify-between">
         <div class="border-b border-[#DDDFEB] pb-4">
           <span class="mb-2 text-2xl font-bold uppercase text-primary">№ {data.number}</span>
           <p class="font-semibold">Номер в реестре</p>
         </div>
-        <p class="mt-auto text-sm font-semibold text-dark lg:text-base">Мы являемся официальным таможенным представителем</p>
+        <p class="mb-2 mt-auto text-sm font-semibold text-dark lg:text-lg">
+          Мы являемся официальным таможенным представителем
+        </p>
+        <a href="/таможенное-оформление.pdf" class=" text-sm md:text-base font-semibold text-accent underline underline-offset-4"> Наш прайс-лист </a>
       </div>
     </div>
   </div>

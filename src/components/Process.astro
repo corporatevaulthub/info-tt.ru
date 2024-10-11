@@ -40,16 +40,14 @@ const items = [
 <section class="container py-10 md:py-20">
   <div class="items-stretc grid gap-10 lg:grid-cols-[350px_1fr] xl:grid-cols-[415px_1fr] xl:gap-20">
     <div class="h-auto">
-      <h2 class="mb-8 section-title text-dark lg:max-w-sm">Процесс Работы</h2>
+      <h2 class="section-title mb-8 text-dark lg:max-w-sm">Процесс Работы</h2>
       <div class="h-auto rounded-[20px] bg-gradient-to-b from-[#B2DDFD] to-[#4764B9] px-4 pb-14 pt-5">
         <Image src={import('@assets/process.png')} quality={100} alt="Процесс Работы" class="max-h-[250px] w-full rounded-[20px] object-cover lg:max-h-full" />
-        <div class="py-5 md:py-10 text-center lg:py-[72px]">
+        <div class="py-5 text-center md:py-10 lg:py-[72px]">
           <Image src={import('@assets/process-logo.png')} alt="logo" quality={100} class="mx-auto mb-5 md:mb-10" />
-          <p class="text-xl sm:text-2xl font-semibold text-white">
-            Вы всегда можете воспользоваться всем спектром наших возможностей для решения Ваших задач так и отдельными опциями
-          </p>
+          <p class="text-xl font-semibold text-white sm:text-2xl">Вы всегда можете воспользоваться всем спектром наших возможностей для решения Ваших задач так и отдельными опциями</p>
         </div>
-        <div class="relative flex flex-col items-center gap-3 pt-10 lg:pt-20 after:absolute after:left-1/2 after:top-0 after:h-[1px] after:w-[270px] after:-translate-x-1/2 after:bg-gray-50 after:content-['']">
+        <div class="relative flex flex-col items-center gap-3 pt-10 after:absolute after:left-1/2 after:top-0 after:h-[1px] after:w-[270px] after:-translate-x-1/2 after:bg-gray-50 after:content-[''] lg:pt-20">
           <p class="text-center text-lg font-semibold text-white">Позвоните, и мы ваc проконсультируем</p>
           <a class="flex items-center gap-2 text-2xl font-bold text-white" href="tel:+74951182058">
             <Icon name="phone" /> +7 (495) 118 20 58
@@ -60,11 +58,11 @@ const items = [
           </div>
           <div class="flex items-center gap-2">
             <span class="text-white/80">Email:</span>
-            <a class="text-xl font-semibold text-white" href="#">sales@info-tt.ru</a>
+            <a class="text-xl font-semibold text-white" href="mailto:sales@info-tt.ru">sales@info-tt.ru</a>
           </div>
           <div class="flex items-center gap-2">
             <span class="text-white/80">Время работы:</span>
-            <a class="text-xl font-semibold text-white" href="#">Пн-Пт, с 10 до 18</a>
+            <span class="text-xl font-semibold text-white">Пн-Пт, с 10 до 18</span>
           </div>
         </div>
       </div>
@@ -79,8 +77,13 @@ const items = [
                 <h3 class="text-2xl font-semibold text-dark">{item.label}</h3>
               </div>
               <p class="pl-[43px] font-semibold leading-tight text-[#252626]">{item.text}</p>
+              {index === 2 && (
+                <a class="pl-[43px] font-semibold text-accent underline underline-offset-4" href="#">
+                  Подробнее
+                </a>
+              )}
             </div>
-            <Image class='hidden md:block' src={item.image} alt={item.label} />
+            <Image class="hidden md:block" src={item.image} alt={item.label} />
           </div>
         ))
       }
@@ -93,7 +96,7 @@ const items = [
           <p class="font-semibold leading-tight text-[#252626]">Товар у Вас на складах. Документация для бухгалтерии в полном порядке. Обязательства перед поставщиком выполнены. Вы продолжаете спокойно развивать свой Бизнес.</p>
         </div>
 
-        <Image class='hidden md:block' src={import('@assets/process/results.png')} alt="results" />
+        <Image class="hidden md:block" src={import('@assets/process/results.png')} alt="results" />
       </div>
     </div>
   </div>

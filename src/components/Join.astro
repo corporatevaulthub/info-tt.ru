@@ -2,6 +2,7 @@
 import { getEntry } from 'astro:content';
 const { data } = await getEntry('contacts', 'contacts');
 ---
+
 <div class="join mb-[60px] bg-gray-50 sm:mb-[130px]">
   <div class="container relative z-10 flex items-start gap-5 py-[50px]">
     <svg width="52" height="52" viewBox="0 0 52 52" fill="none" class="shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +27,7 @@ const { data } = await getEntry('contacts', 'contacts');
       </defs>
     </svg>
     <p class="max-w-[764px] font-semibold lg:text-xl">
-      <a href={data.tg} target='_blank' class="text-primary">Подписывайтесь на наш Telegram-канал</a>, чтобы первыми узнавать о сроках доставки и видеть реальные фотографии грузов в действии
+      <a href={data.tg} target="_blank" class="text-primary"> Подписывайтесь на наш Telegram-канал </a>, чтобы первыми узнавать о сроках доставки и видеть реальные фотографии грузов в действии
     </p>
   </div>
 </div>
