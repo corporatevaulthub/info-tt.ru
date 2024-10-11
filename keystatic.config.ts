@@ -137,7 +137,7 @@ export default config({
       },
     }),
     contacts: singleton({
-      label: "Общая настройка",
+      label: "Контакты",
       path: "src/data/home/settings",
       schema: {
         phones: fields.object(
