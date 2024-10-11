@@ -75,10 +75,10 @@ const { data } = await getEntry('home', 'settings');
       </div>
 
       <div class="flex gap-3 self-start">
-        <a href={data.whatsapp} target="_blank">
+        <a href={data.socials.whatsapp} target="_blank">
           <Image src={import('@assets/whatsapp.svg')} alt="whatsapp" />
         </a>
-        <a href={data.telegram} target="_blank">
+        <a href={data.socials.telegram} target="_blank">
           <Image src={import('@assets/telegram.svg')} alt="telegram" />
         </a>
       </div>
