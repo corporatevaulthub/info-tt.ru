@@ -6,7 +6,7 @@ const { data } = await getEntry('home', 'settings');
 const processData = await getEntry('home', 'process');
 ---
 
-<section class="container py-10 md:py-20">
+<section class="container py-10 md:py-20 scroll-mt-24" id='process'>
   <div class="items-stretc grid gap-10 lg:grid-cols-[350px_1fr] xl:grid-cols-[415px_1fr] xl:gap-20">
     <div class="h-auto">
       <h2 class="section-title mb-8 text-dark lg:max-w-sm">{processData.data.title}</h2>
