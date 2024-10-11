@@ -1,6 +1,6 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import heroBackground from '../assets/delivery/main-bg.png';
+import heroBackground from '../assets/delivery-bg.png';
 import { Icon } from 'astro-icon/components';
 import { getEntry } from 'astro:content';
 const { data } = await getEntry('home', 'delivery');
@@ -21,7 +21,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
 
     <div class="mt-2 flex gap-4 rounded-lg bg-white p-3 md:p-5">
       <a href="/delivery-doc.png" target="_blank" class="relative">
-        <Image src={import('@assets/delivery/delivery/image.png')} quality={100} class="h-full w-[200px] object-cover md:w-[250px]" alt="doc" />
+        <Image src={import('@assets/delivery-doc.png')} quality={100} class="h-full w-[200px] object-cover md:w-[250px]" alt="doc" />
         <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-accent">
           <Icon name="search" />
         </span>

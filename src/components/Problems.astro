@@ -27,7 +27,10 @@ const { data } = await getEntry('home', 'problems');
     </div>
     <div class="relative">
       <Image src={import('@assets/business.png')} class="mb-5 hidden w-full rounded-xl object-cover lg:block lg:max-w-[450px] xl:mb-0 xl:h-full xl:max-w-full" quality={100} alt="С какими проблемами мы поможем?" />
-      <p class="left-0 right-0 mx-auto mb-1 max-w-[544px] text-balance rounded-xl bg-gray-50 px-4 py-3.5 font-semibold xl:absolute xl:bottom-10">{data.imageText}</p>
+      <div class="left-0 right-0 mx-auto mb-1 max-w-[544px] rounded-xl bg-gray-50 px-4 py-3.5 text-lg font-semibold xl:absolute xl:bottom-10">
+        <p>У многих компаний сейчас появились трудности в экспорте-импорте товаров в РФ и за её пределы.</p>
+        <p class="mt-2 rounded-lg bg-[#3472EA] px-1 py-0.5 text-white">Но у нас есть все компетенции чтобы помогать вам несмотря на ограничения</p>
+      </div>
     </div>
   </div>
 </section>
