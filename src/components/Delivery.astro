@@ -8,9 +8,9 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
 ---
 
 <section class="delivery bg-cover bg-center bg-no-repeat" style={`background-image: url(${optimizedBackground.src});`}>
-  <div class="container relative z-10 flex min-h-[700px] flex-col items-start pb-5 lg:flex-row">
-    <div class="mt-auto pb-5">
-      <h2 class="section-title mb-5 text-white lg:mb-9 lg:text-white">{data.title}</h2>
+  <div class="container relative z-10 flex min-h-[700px] flex-col items-start justify-between pb-5 lg:flex-row">
+    <div class="mt-auto max-w-2xl pb-5">
+      <h2 class="mb-5 text-3xl font-bold text-white lg:mb-9 lg:text-5xl lg:text-white">{data.title}</h2>
       <div class="flex items-center gap-7">
         <div class="shrink-0 rounded-lg bg-white p-3">
           <Image src={import('@assets/earth.svg')} alt="earth" class="size-10" />
@@ -19,7 +19,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
       </div>
     </div>
 
-    <div class="mt-2 flex gap-4 rounded-lg bg-white p-3 md:p-5">
+    <div class="mt-2 flex gap-4 rounded-lg bg-white p-3 md:p-5 lg:max-w-[440px]">
       <a href="/delivery-doc.png" target="_blank" class="relative">
         <Image src={import('@assets/delivery-doc.png')} quality={100} class="h-full w-[200px] object-cover md:w-[250px]" alt="doc" />
         <span class="absolute bottom-0 right-0 grid size-7 place-content-center place-items-center bg-accent">
@@ -49,7 +49,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
 </style>
