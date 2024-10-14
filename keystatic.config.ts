@@ -92,7 +92,7 @@ export default config({
       },
     }),
     benefits: singleton({
-      label: "Возможности",
+      label: "Чем мы поможем?",
       path: "src/data/home/benefits",
       schema: {
         title: fields.text({ label: "Заголовок " }),
@@ -134,6 +134,24 @@ export default config({
         title: fields.text({ label: "Заголовок" }),
         description: fields.text({ label: "Описание", multiline: true }),
         saleFor: fields.text({ label: "Дата" }),
+      },
+    }),
+    advantages: singleton({
+      label: "Возможности",
+      path: "src/data/home/advantages",
+      schema: {
+        title: fields.text({ label: "Заголовок " }),
+        items: fields.array(
+          fields.object({
+            title: fields.text({ label: "Заголовок" }),
+            description: fields.text({ label: "Описание", multiline: true }),
+            image: fields.image({ label: "Изображение", directory: "src/assets/images/advantages", publicPath: "@assets/images/advatanges/" }),
+          }),
+          {
+            label: "Карточки",
+            itemLabel: (props) => props.fields.title.value,
+          },
+        ),
       },
     }),
     contacts: singleton({
