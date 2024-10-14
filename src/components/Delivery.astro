@@ -10,7 +10,7 @@ const optimizedBackground = await getImage({ src: heroBackground, format: 'webp'
 <section class="delivery bg-cover bg-center bg-no-repeat" style={`background-image: url(${optimizedBackground.src});`}>
   <div class="container relative z-10 flex min-h-[700px] flex-col items-start pb-5 lg:flex-row">
     <div class="mt-auto pb-5">
-      <h2 class="section-title mb-5 text-white lg:mb-9 lg:text-white">ТАМОЖЕННОЕ ОФОРМЛЕНИЕ, БРОКЕРСКИЕ УСЛУГИ</h2>
+      <h2 class="section-title mb-5 text-white lg:mb-9 lg:text-white">{data.title}</h2>
       <div class="flex items-center gap-7">
         <div class="shrink-0 rounded-lg bg-white p-3">
           <Image src={import('@assets/earth.svg')} alt="earth" class="size-10" />
