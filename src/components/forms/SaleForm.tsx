@@ -29,9 +29,6 @@ const SaleForm = () => {
             TITLE: "Новый лид с формы (Акция)",
             NAME: formData.name,
             PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
-            COMMENTS: `
-              Комментарий: ${formData.comment},
-            `,
           },
         };
 
@@ -76,26 +73,16 @@ const SaleForm = () => {
 
   return (
     <form ref={form} onSubmit={handleSubmit(sendEmail)}>
-      <fieldset className="mb-4 flex w-full max-w-[540px] flex-wrap items-start gap-2 lg:max-w-full">
-        <div className="flex w-full flex-col gap-2 lg:w-auto lg:flex-row">
-          <input required className={`input h-[43px] w-full lg:w-[260px] ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
-          <IMaskInput required className="input h-[43px] w-full lg:w-[260px]" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" inputRef={phoneInputRef} />
-        </div>
-        <div className="flex w-full flex-col gap-2 lg:w-auto lg:flex-row">
-          <input
-            className={`input h-[43px] w-full lg:w-[530px] ${errors.comment && "border-2 border-red-500"}`}
-            placeholder="Комментарий"
-            {...register("comment")}
-            style={{ verticalAlign: "bottom" }}
-          />
-          <button className="button h-[43px] w-full justify-center bg-accent px-[43px] disabled:pointer-events-none disabled:bg-dark lg:w-[260px]" disabled={loading}>
-            {loading ? "Отправка.." : "Отправить"}
-          </button>
-        </div>
+      <fieldset className="flex gap-2.5 mb-5">
+        <input required className={`input h-11 w-full lg:w-[260px] ${errors.name && "border-2 border-red-500"}`} placeholder="Имя" {...register("name", { required: true })} />
+        <IMaskInput required className="input h-11 w-full lg:w-[260px]" mask="+{7}(000)000-00-00" name="phone" placeholder="Телефон" inputRef={phoneInputRef} />
+        <button className="button h-11 bg-accent lg:w-[170px] justify-center" disabled={loading}>
+          {loading ? "Отправка.." : "Подробнее"}
+        </button>
       </fieldset>
 
       <label className="flex cursor-pointer items-center gap-2 text-[#2E3037]">
-        <input required type="checkbox" {...register("accept", { required: true })} className="form-checkbox rounded border-[#D5DAE3] text-primary  focus:ring-0" />
+        <input required type="checkbox" {...register("accept", { required: true })} className="form-checkbox rounded border-[#D5DAE3] text-primary focus:ring-0" />
         <span className="text-[12px] font-semibold sm:text-sm">Я согласен с политикой конфиденциальности</span>
       </label>
       <Toaster />

@@ -74,12 +74,12 @@ const CallForm = () => {
 
   return (
     <form ref={form} onSubmit={handleSubmit(sendEmail)} className="relative z-10">
-      <div className="mb-5 flex flex-col items-end gap-5 md:mb-10 md:flex-row">
-        <div className="relative z-20 w-full max-w-[750px]">
-          <div className="mb-6 flex flex-col gap-5 md:flex-row md:gap-[50px]">
-            <div className="w-full max-w-[325px]">
+
+        <div className="relative z-20 w-full max-w-[750px] mb-5">
+          <div className="mb-6 flex flex-col gap-5 md:flex-row">
+            <div className="w-full max-w-[365px]">
               <h3 className="mb-5 font-bold text-dark">Требуется</h3>
-              <div className="flex flex-col gap-2">
+              <div className="flex w-full flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <input type="radio" id="delivery" checked required value="Доставка товара" {...register("required_for", { required: true })} className="focus:ring-0" />
                   <label htmlFor="delivery" className="font-medium">
@@ -144,15 +144,16 @@ const CallForm = () => {
             </fieldset>
           </div>
         </div>
-        <button className="button w-full justify-center bg-accent py-2 disabled:pointer-events-none disabled:bg-dark md:w-auto" disabled={loading}>
-          {loading ? "Отправка.." : "Отправить"}
-        </button>
-      </div>
+      
 
-      <label className="flex cursor-pointer items-center gap-2 text-[#2E3037]">
+      <label className="flex cursor-pointer items-center gap-2 text-[#2E3037] mb-5">
         <input type="checkbox" required name="yes_i_understand" className="form-checkbox rounded border-[#D5DAE3] text-primary focus:ring-0" />
         <span className="text-[12px] font-semibold sm:text-sm">Я согласен с политикой конфиденциальности сайта</span>
       </label>
+
+      <button className="button w-full justify-center bg-accent py-2 disabled:pointer-events-none disabled:bg-dark md:w-auto" disabled={loading}>
+        {loading ? "Отправка.." : "Отправить"}
+      </button>
     </form>
   );
 };

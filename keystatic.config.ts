@@ -61,7 +61,9 @@ export default config({
           { label: "Секция слева" },
         ),
         rightBlock: fields.object(
+          
           {
+          
             process: fields.array(
               fields.object({
                 title: fields.text({ label: "Заголовок" }),
@@ -78,6 +80,10 @@ export default config({
               },
             ),
             result: fields.text({ label: "Результат", multiline: true }),
+            url: fields.url({
+              label: 'URL',
+              description: 'Ссылка на сайт склада'
+            }),
           },
           { label: "Процесс" },
         ),
@@ -131,9 +137,14 @@ export default config({
       label: "Акция",
       path: "src/data/home/sale",
       schema: {
+        draft: fields.checkbox({
+          label: "Показать на сайте",
+        }),
         title: fields.text({ label: "Заголовок" }),
         description: fields.text({ label: "Описание", multiline: true }),
+        titleBeforeForm: fields.text({ label: "Текст перед формой" }),
         saleFor: fields.text({ label: "Дата" }),
+        textAfterSale: fields.text({ label: "Текст под датой" }),
       },
     }),
     advantages: singleton({

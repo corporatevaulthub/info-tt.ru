@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { getEntry } from 'astro:content';
 const { data } = await getEntry('home', 'settings');
-const processData = await getEntry('home', 'process');
+const processData = await getEntry('home', 'process'); 
 ---
 
 <section class="container py-10 md:py-20 scroll-mt-24" id='process'>
@@ -50,7 +50,7 @@ const processData = await getEntry('home', 'process');
               </div>
               <p class="pl-[43px] font-semibold leading-tight text-[#252626]">{item.text}</p>
               {index === 2 && (
-                <a class="pl-[43px] font-semibold text-accent underline underline-offset-4" href="www.sklad-itt.ru" target="_blank">
+                <a class="pl-[43px] font-semibold text-accent underline underline-offset-4" href={processData.data.rightBlock.url} target="_blank">
                   Подробнее
                 </a>
               )}
