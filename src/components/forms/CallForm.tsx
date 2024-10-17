@@ -120,7 +120,7 @@ const CallForm = () => {
               </div>
               <div className="mb-5 w-full">
                 <h3 className="mb-2 font-bold text-dark">Телефон</h3>
-                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="Телефон" inputRef={phoneInputRef} />
+                <IMaskInput className="input w-full" mask="+{7}(000)000-00-00" name="phone" required unmask={true} placeholder="+7 (999) 999-99-99" inputRef={phoneInputRef} />
               </div>
               <div className="w-full">
                 <h3 className="mb-2 font-bold text-dark">Email</h3>
