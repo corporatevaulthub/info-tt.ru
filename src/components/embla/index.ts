@@ -16,7 +16,7 @@ emblaNodes.forEach((emblaNode: Element) => {
   // Check if the viewportNode exists before initializing EmblaCarousel
   if (viewportNode) {
     let screenWidth = window.screen.availWidth;
-    const emblaApi = EmblaCarousel(viewportNode, OPTIONS, screenWidth < 640 ? [AutoHeight()] : []);
+    const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
 
     const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(emblaApi, prevBtn, nextBtn);
 
