@@ -1,41 +1,42 @@
-<div class="container scroll-mt-24" id="contacts">
-  <h2 class="section-title mb-8 text-dark">Контакты</h2>
-  <p class="mb-10 max-w-3xl text-xl font-bold sm:text-2xl">Желаете приехать к нам и обсудить сотрудничество лично? Будем рады пообщаться и найти наилучшее решение!</p>
+<div class='container scroll-mt-24' id='contacts'>
+	<h2 class='section-title mb-8 text-dark'>Контакты</h2>
+	<p class='mb-10 max-w-3xl text-xl font-bold sm:text-2xl'>Желаете приехать к нам и обсудить сотрудничество лично? Будем рады пообщаться и найти наилучшее решение!</p>
 </div>
-<div class="h-[530px] w-full" id="map"></div>
+<div class='h-[530px] w-full' id='map'></div>
 
 <style is:global>
-  .ymaps-2-1-79-gototech {
-    display: none !important;
-  }
+	.ymaps-2-1-79-gototech {
+		display: none !important;
+	}
 </style>
 
-<script is:inline src="https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&load=package.map&lang=ru_RU"></script>
+<script is:inline src='https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&load=package.map&lang=ru_RU'></script>
 
 <script is:inline>
-  ymaps.ready(function () {
-    const myMap = new ymaps.Map('map', {
-      controls: [],
-      center: [55.761923, 37.688611],
-      zoom: 16,
-    });
+	ymaps.ready(function () {
+		const myMap = new ymaps.Map('map', {
+			controls: [],
+			center: [55.761923, 37.688611],
+			zoom: 16,
+		});
 
-    let myPlacemark = new ymaps.Placemark(
-      [55.761923, 37.688611],
-      {
-        balloonContentHeader: 'ул. Красноказарменная, д.3, стр.4',
-        balloonContentFooter: '+7 (495) 668 05 74 <br> +7 (495) 118 20 58',
-        hasBalloon: true,
-        hideIconOnBalloonOpen: true,
-      },
-      {
-        iconLayout: 'default#imageWithContent',
-        iconImageHref: '/map.svg',
-        iconImageSize: [50, 50],
-        iconImageOffset: [-20, -20],
-        iconContentOffset: [0, 0],
-      },
-    );
-    myMap.geoObjects.add(myPlacemark);
-  });
+		let myPlacemark = new ymaps.Placemark(
+			[55.761923, 37.688611],
+			{
+				balloonContentHeader: 'ул. Красноказарменная, д.3, стр.4',
+				balloonContentFooter: '+7 (495) 668 05 74 <br> +7 (495) 118 20 58',
+				hasBalloon: true,
+				hideIconOnBalloonOpen: true,
+			},
+			{
+				iconLayout: 'default#imageWithContent',
+				iconImageHref: '/map.svg',
+				iconImageSize: [50, 50],
+				iconImageOffset: [-20, -20],
+				iconContentOffset: [0, 0],
+			},
+		);
+		myMap.geoObjects.add(myPlacemark);
+		myMap.behaviors.disable('scrollZoom');
+	});
 </script>

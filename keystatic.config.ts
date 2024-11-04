@@ -61,9 +61,7 @@ export default config({
           { label: "Секция слева" },
         ),
         rightBlock: fields.object(
-          
           {
-          
             process: fields.array(
               fields.object({
                 title: fields.text({ label: "Заголовок" }),
@@ -81,8 +79,8 @@ export default config({
             ),
             result: fields.text({ label: "Результат", multiline: true }),
             url: fields.url({
-              label: 'URL',
-              description: 'Ссылка на сайт склада'
+              label: "URL",
+              description: "Ссылка на сайт склада",
             }),
           },
           { label: "Процесс" },
@@ -128,7 +126,7 @@ export default config({
       path: "src/data/home/reviews",
       schema: {
         title: fields.text({ label: "Заголовок" }),
-        reviews: fields.array(fields.image({ label: "Добавить отзыв", directory: "src/assets/images", publicPath: "@assets/images/" }), {
+        reviews: fields.array(fields.image({ label: "Добавить отзыв", directory: "/public/" }), {
           label: "Отзывы",
         }),
       },
