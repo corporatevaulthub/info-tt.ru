@@ -19,7 +19,7 @@ const { data } = await getEntry('home', 'reviews');
 				<div class='embla__container flex gap-5' id='lightgallery'>
 					{
 						data.reviews.map((review, index) => (
-							<a href={`/reviews/${index}.png`} class='mix item embla__slide block h-full'>
+							<a href={`/reviews/${index}.png`} class='embla__slide block'>
 								<Image class={`w-full object-cover`} alt='image' src={`/reviews/${index}.png`} width={450} height={450} />
 							</a>
 						))
