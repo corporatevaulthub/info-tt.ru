@@ -88,7 +88,7 @@ const Modal = ({ children }) => {
                     as="h3"
                     className="mb-2 text-center text-xl font-semibold text-dark"
                   >
-                    Оставьте свои данные
+                    Оставьте свои данные1
                   </Dialog.Title>
                   <button
                     className="absolute right-5 top-5"
