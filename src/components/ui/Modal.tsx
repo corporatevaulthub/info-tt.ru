@@ -67,7 +67,7 @@ const Modal = ({ children }) => {
               >
                 <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden  bg-white px-6 py-10 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" className="mb-2 text-center text-xl font-semibold text-dark">
-                    Оставьте свои данные1
+                    Оставьте свои данные
                   </Dialog.Title>
                   <button className="absolute right-5 top-5" onClick={closeModal}>
                     <X />
