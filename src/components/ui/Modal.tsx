@@ -97,7 +97,7 @@ const Modal = ({ children }) => {
                     <X />
                   </button>
                   <p className="mb-5 text-center">
-                    И мы скоро свяжемся с вами!
+                    И мы скоро свяжемся с вами!1
                   </p>
                   <form ref={form} onSubmit={handleSubmit(sendEmail)}>
                     <fieldset className="mb-4 flex w-full flex-col items-start gap-3">
